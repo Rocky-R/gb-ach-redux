@@ -3,33 +3,10 @@ Rails.application.routes.draw do
 
   get 'sessions/log_out'
 
-  get 'grades/index'
+  resources :teachers
+  resources :grades
 
-  get 'grades/new'
-
-  get 'grades/show'
-
-  get 'grades/edit'
-
-  get 'grades/create'
-
-  get 'grades/update'
-
-  get 'grades/destroy'
-
-  get 'teachers/index'
-
-  get 'teachers/new'
-
-  get 'teachers/show'
-
-  get 'teachers/edit'
-
-  get 'teachers/create'
-
-  get 'teachers/update'
-
-  get 'teachers/destroy'
+  root 'sessions#log_in'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
