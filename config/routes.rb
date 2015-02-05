@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'sessions/log_in'
-
+  post 'sessions/log_in'
   get 'sessions/log_out'
 
   resources :teachers
