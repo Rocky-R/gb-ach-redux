@@ -17,14 +17,20 @@ class GradesController < ApplicationController
   end
 
   def create
+    @parent = Parent.new(parent_params)
+    if @parent.save
+      redirect_to @parent, notice: 'Parent was successfully created.'
+    else
+      render :new
+    end
   end
 
   def update
     if @grade.update(grade_params)
-  redirect_to @grade, notice: 'Grade was successfully updated.'
-else
-  render :edit
-end
+      redirect_to @grade, notice: 'Grade was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
