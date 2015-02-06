@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  before_action :set_teacher, only: [:show, :edit, :update]
+  before_action :set_teacher, only: [:show, :edit, :update, :destroy]
 
   def index
     @teachers = Teacher.all
@@ -18,7 +18,7 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(teacher_params)
     if @teacher.save
-      redirect_to teachers_path, notice: "New teacher created successfully."
+      redirect_to teachers_path, notice: 'New teacher created successfully.'
     else
       render :new
     end
@@ -28,6 +28,8 @@ class TeachersController < ApplicationController
   end
 
   def destroy
+    @teacher.destroy
+    redirect_to teachers_path, notice: 'Teacher successfully deleted.'
   end
 
   private

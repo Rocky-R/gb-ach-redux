@@ -34,6 +34,8 @@ class GradesController < ApplicationController
   end
 
   def destroy
+    @grade.destroy
+    redirect_to grades_path notice: 'Grade was successfully deleted.'
   end
 
   private
