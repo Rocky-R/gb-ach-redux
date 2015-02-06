@@ -1,31 +1,5 @@
 Rails.application.routes.draw do
-  get 'parents/index'
 
-  get 'parents/new'
-
-  get 'parents/show'
-
-  get 'parents/edit'
-
-  get 'parents/create'
-
-  get 'parents/update'
-
-  get 'parents/destory'
-
-  get 'students/index'
-
-  get 'students/new'
-
-  get 'students/show'
-
-  get 'students/edit'
-
-  get 'students/create'
-
-  get 'students/update'
-
-  get 'students/destory'
 
   get 'sessions/log_in'
   post 'sessions/log_in'
@@ -33,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :teachers
   resources :grades
+  resources :students
+  resources :parentss
 
   root 'sessions#log_in'
 

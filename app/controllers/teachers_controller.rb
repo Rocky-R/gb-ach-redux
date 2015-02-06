@@ -25,6 +25,11 @@ class TeachersController < ApplicationController
   end
 
   def update
+    if @teacher.update(teacher_params)
+      redirect_to @teacher, notice: 'Teacher was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
