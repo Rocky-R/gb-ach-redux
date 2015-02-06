@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def log_out
-    session[:teacher_id] = nil
+    session[:user_id] = nil
     redirect_to sessions_log_in_path
   end
 
