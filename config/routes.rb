@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :teachers
   resources :grades
   resources :students
-  resources :parentss
+  resources :parents
 
   root 'sessions#log_in'
 

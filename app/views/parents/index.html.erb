@@ -1,2 +1,37 @@
-<h1>Parents#index</h1>
-<p>Find me in app/views/parents/index.html.erb</p>
+<h1>Parents</h1>
+
+<p id="notice"><%= notice %></p>
+<%= link_to "Log out", sessions_log_out_path %><br>
+<%= link_to "Back to grades", grades_path %>
+
+<h1>Listing Parents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parent Name</th>
+      <th>Email</th>
+      <th>Child's Name</th>
+      <th>Child's Teacher</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parents.each do |parent| %>
+      <tr>
+        <td><%= parent.name %></td>
+        <td><%= parent.email %></td>
+        <td><%= parent.student.name %></td>
+        <td><%= parent.student.teacher.name %></td>
+        <td><%= link_to 'Show', parent %></td>
+        <td><%= link_to 'Edit', edit_parent_path(parent) %></td>
+        <td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parent', new_parent_path %>
