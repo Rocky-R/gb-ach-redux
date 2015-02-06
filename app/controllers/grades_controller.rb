@@ -1,5 +1,6 @@
 class GradesController < ApplicationController
   before_action :set_grade, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in?
 
   def index
     @grades = Grade.all

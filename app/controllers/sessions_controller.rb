@@ -2,9 +2,11 @@ class SessionsController < ApplicationController
 
   def log_in
     if request.post?
-      teacher = Teacher.find_by_email(params[:email])
-      if teacher && teacher.authenticate(params[:password])
-        session[:teacher_id] = teacher.id
+      user = Teacher.find_by_email(params[:email]) ||
+             Student.find_by_email(params[:email]) ||
+             Parent.find_by_email(params[:email])
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
         flash[:notice] = "Welcome!"
         redirect_to grades_path
       else
