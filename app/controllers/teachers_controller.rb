@@ -11,6 +11,7 @@ class TeachersController < ApplicationController
   end
 
   def show
+    redirect_to teachers_path
   end
 
   def edit

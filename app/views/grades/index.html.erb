@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <% if @teacher %>
-  <%= link_to 'Edit Teachers', teachers_path %><br>
-  <%= link_to 'Edit Students', students_path %><br>
-  <%= link_to 'Edit Parents', parents_path %>
+  <%= button_to 'Edit Teachers', teachers_path, :method => "get" %><br>
+  <%= button_to 'Edit Students', students_path, :method => "get" %><br>
+  <%= button_to 'Edit Parents', parents_path, :method => "get" %>
 <% elsif @student %>
-  <%= link_to 'Edit Account', edit_student_path(current_user) %>
+  <%= button_to 'Edit Account', edit_student_path(current_user), :method => "get" %>
 <% elsif @parent %>
-  <%= link_to 'Edit Account', edit_parent_path(current_user) %>
+  <%= button_to 'Edit Account', edit_parent_path(current_user), :method => "get" %>
 <% end %>
 
 <h1>Listing Grades</h1>
@@ -29,9 +29,9 @@
         <td><%= grade.grade_value %></td>
         <td><%= grade.student.teacher.name %></td>
         <% if @teacher %>
-          <td><%= link_to 'Show', grade %></td>
-          <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
-          <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= button_to 'Show', grade, :method => "get" %></td>
+          <td><%= button_to 'Edit', edit_grade_path(grade), :method => "get" %></td>
+          <td><%= button_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' }, :method => "get" %></td>
         <% end %>
       </tr>
     <% end %>
@@ -41,5 +41,5 @@
 <br>
 
 <% if @teacher %>
-  <%= link_to 'New Grade', new_grade_path %>
+  <%= button_to 'New Grade', new_grade_path, :method => "get" %>
 <% end %>

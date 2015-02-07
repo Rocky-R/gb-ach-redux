@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<%= link_to "Return To Grades", grades_path %>
+<%= button_to "Return To Grades", grades_path, :method => "get" %>
 
 
 <h1>Teachers</h1>
@@ -18,9 +18,9 @@
       <tr>
         <td><%= teacher.name %></td>
         <td><%= teacher.email %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Show', teacher, :method => "get" %></td>
+        <td><%= button_to 'Edit', edit_teacher_path(teacher), :method => "get" %></td>
+        <td><%= button_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' }, :method => "get" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Teacher', new_teacher_path %>
+<%= button_to 'New Teacher', new_teacher_path, :method => "get" %>

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<%= link_to "Back to grades", grades_path %>
+<%= button_to "Back to grades", grades_path, :method => "get" %>
 
 <h1>Parents</h1>
 
@@ -21,9 +21,9 @@
         <td><%= parent.email %></td>
         <td><%= parent.student.name if parent.student !=nil %></td>
         <td><%= parent.student.teacher.name if parent.student !=nil %></td>
-        <td><%= link_to 'Show', parent %></td>
-        <td><%= link_to 'Edit', edit_parent_path(parent) %></td>
-        <td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Show', parent, :method => "get" %></td>
+        <td><%= button_to 'Edit', edit_parent_path(parent), :method => "get" %></td>
+        <td><%= button_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' }, :method => "get" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Parent', new_parent_path %>
+<%= button_to 'New Parent', new_parent_path, :method => "get" %>
