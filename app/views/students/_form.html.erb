@@ -1,6 +1,3 @@
-<% if current_user != @student %>
-  <% controller.redirect_to grades_path %>
-<% end %>
 <%= form_for(@student) do |f| %>
   <% if @student.errors.any? %>
     <div id="error_explanation">

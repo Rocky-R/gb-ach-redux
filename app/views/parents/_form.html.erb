@@ -1,6 +1,3 @@
-<% if current_user != @parent %>
-  <% controller.redirect_to grades_path %>
-<% end %>
 <%= form_for(@parent) do |f| %>
   <% if @parent.errors.any? %>
     <div id="error_explanation">
