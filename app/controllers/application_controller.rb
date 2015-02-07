@@ -20,6 +20,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def is_student?
+    if current_user == Parent.find_by_id(session[:parent_id])
+      redirect_to grades_path
+    end
+  end
+
+  def is_parent?
+    if current_user == Student.find_by_id(session[:student_id])
+      redirect_to grades_path
+    end
+  end
+
   def logged_in?
     if current_user == nil
       redirect_to root_path
