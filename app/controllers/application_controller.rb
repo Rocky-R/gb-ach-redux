@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
  private
 
   def current_user
-    @current_user = Teacher.find_by_id(session[:user_id]) ||
-                    Student.find_by_id(session[:user_id]) ||
-                    Parent.find_by_id(session[:user_id])
+    @current_user = Teacher.find_by_id(session[:teacher_id]) ||
+                    Student.find_by_id(session[:student_id]) ||
+                    Parent.find_by_id(session[:parent_id])
   end
 
   def logged_in?
