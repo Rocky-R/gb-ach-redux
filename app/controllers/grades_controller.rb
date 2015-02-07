@@ -3,6 +3,7 @@ class GradesController < ApplicationController
   before_action :logged_in?
 
   def index
+    @teacher = Teacher.find_by_id(session[:teacher_id])
     if current_user == Teacher.find_by_id(session[:teacher_id])
       @grades = Grade.all
     elsif current_user == Student.find_by_id(session[:student_id])

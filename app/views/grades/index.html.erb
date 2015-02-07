@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to "Edit Teachers", teachers_path %><br>
-<%= link_to "Edit Students", students_path %><br>
-<%= link_to "Edit Parents", parents_path %>
+<% if @teacher %>
+  <%= link_to "Edit Teachers", teachers_path %><br>
+  <%= link_to "Edit Students", students_path %><br>
+  <%= link_to "Edit Parents", parents_path %>
+<% end %>
 
 <h1>Listing Grades</h1>
 
@@ -22,9 +24,11 @@
         <td><%= grade.student.name %></td>
         <td><%= grade.grade_value %></td>
         <td><%= grade.student.teacher.name %></td>
-        <td><%= link_to 'Show', grade %></td>
-        <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
-        <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if @teacher %>
+          <td><%= link_to 'Show', grade %></td>
+          <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
+          <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +36,6 @@
 
 <br>
 
-<%= link_to 'New Grade', new_grade_path %>
+<% if @teacher %>
+  <%= link_to 'New Grade', new_grade_path %>
+<% end %>
