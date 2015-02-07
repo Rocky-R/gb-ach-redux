@@ -4,6 +4,8 @@ class GradesController < ApplicationController
 
   def index
     @teacher = Teacher.find_by_id(session[:teacher_id])
+    @parent = Parent.find_by_id(session[:parent_id])
+    @student = Student.find_by_id(session[:student_id])
     if current_user == Teacher.find_by_id(session[:teacher_id])
       @grades = Grade.all
     elsif current_user == Student.find_by_id(session[:student_id])

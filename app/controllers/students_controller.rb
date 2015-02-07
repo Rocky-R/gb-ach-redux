@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in?, :is_teacher?
+  before_action :logged_in?
+  before_action :is_teacher?, only: [:destroy, :index, :create, :new]
 
   def index
     @students = Student.all

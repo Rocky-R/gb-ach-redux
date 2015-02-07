@@ -1,6 +1,7 @@
 class ParentsController < ApplicationController
   before_action :set_parent, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in?, :is_teacher?
+  before_action :logged_in?
+  before_action :is_teacher?, only: [:destroy, :index, :create, :new]
 
   def index
     @parents = Parent.all

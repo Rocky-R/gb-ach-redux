@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <% if @teacher %>
-  <%= link_to "Edit Teachers", teachers_path %><br>
-  <%= link_to "Edit Students", students_path %><br>
-  <%= link_to "Edit Parents", parents_path %>
+  <%= link_to 'Edit Teachers', teachers_path %><br>
+  <%= link_to 'Edit Students', students_path %><br>
+  <%= link_to 'Edit Parents', parents_path %>
+<% elsif @student %>
+  <%= link_to 'Edit Account', edit_student_path(current_user) %>
+<% elsif @parent %>
+  <%= link_to 'Edit Account', edit_parent_path(current_user) %>
 <% end %>
 
 <h1>Listing Grades</h1>
