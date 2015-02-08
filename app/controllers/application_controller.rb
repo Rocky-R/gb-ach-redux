@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
 
+  def index
+    @teacher = Teacher.find_by_id(session[:teacher_id])
+    @parent = Parent.find_by_id(session[:parent_id])
+    @student = Student.find_by_id(session[:student_id])
+  end
+
  private
 
   def current_user
@@ -33,7 +39,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    if current_user == nil
+    if current_user.nil?
       redirect_to root_path
     end
   end
