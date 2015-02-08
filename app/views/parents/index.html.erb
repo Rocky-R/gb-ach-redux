@@ -19,8 +19,8 @@
       <tr>
         <td><%= parent.name %></td>
         <td><%= parent.email %></td>
-        <td><%= parent.student.name if parent.student !=nil %></td>
-        <td><%= parent.student.teacher.name if parent.student !=nil %></td>
+        <td><%= parent.student.name if parent.student != nil %></td>
+        <td><%= parent.student.teacher.name if parent.student != nil %></td>
         <td><%= button_to 'Show', parent, :method => "get" %></td>
         <td><%= button_to 'Edit', edit_parent_path(parent), :method => "get" %></td>
         <td><%= button_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' }, :method => "get" %></td>

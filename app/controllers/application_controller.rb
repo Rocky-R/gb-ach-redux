@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    if current_user == nil
+    if current_user.nil?
       redirect_to root_path
     end
   end

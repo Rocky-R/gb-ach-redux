@@ -3,6 +3,9 @@ class TeachersController < ApplicationController
   before_action :logged_in?, :is_teacher?
 
   def index
+    @teacher = Teacher.find_by_id(session[:teacher_id])
+    @parent = Parent.find_by_id(session[:parent_id])
+    @student = Student.find_by_id(session[:student_id])
     @teachers = Teacher.all
   end
 
