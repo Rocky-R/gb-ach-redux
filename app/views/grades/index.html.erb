@@ -25,9 +25,9 @@
   <tbody>
     <% @grades.each do |grade| %>
       <tr>
-        <td><%= grade.student.name if grade.student != nil%></td>
+        <td><%= grade.student.name if grade.student != nil %></td>
         <td><%= grade.grade_value %></td>
-        <td><%= grade.student.teacher.name %></td>
+        <td><%= grade.student.teacher.name if grade.student != nil %></td>
         <% if @teacher %>
           <td><%= button_to 'Show', grade, :method => "get" %></td>
           <td><%= button_to 'Edit', edit_grade_path(grade), :method => "get" %></td>
