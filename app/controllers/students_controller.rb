@@ -4,9 +4,6 @@ class StudentsController < ApplicationController
   before_action :is_teacher?, only: [:destroy, :index, :create, :new]
 
   def index
-    @teacher = Teacher.find_by_id(session[:teacher_id])
-    @parent = Parent.find_by_id(session[:parent_id])
-    @student = Student.find_by_id(session[:student_id])
     @students = Student.all
   end
 
