@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if teacher && teacher.authenticate(params[:password])
         session[:teacher_id] = teacher.id
         flash[:notice] = "Welcome!"
-        redirect_to grades_path
+        redirect_to students_path
       elsif student && student.authenticate(params[:password])
         session[:student_id] = student.id
         flash[:notice] = "Welcome!"

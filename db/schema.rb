@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206195850) do
+ActiveRecord::Schema.define(version: 20150210021538) do
 
-  create_table "grades", force: :cascade do |t|
-    t.string   "grade_value"
-    t.integer  "student_id"
+  create_table "achievements", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "points"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "achievements_students", force: :cascade do |t|
+    t.integer  "achievements_id_id"
+    t.integer  "students_id_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "parents", force: :cascade do |t|
