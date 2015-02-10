@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :update_achievements, :edit_achievements]
   before_action :logged_in?, :is_student?
   before_action :is_teacher?, only: [:destroy, :index, :create, :new]
 
@@ -16,6 +16,18 @@ class StudentsController < ApplicationController
   end
 
   def edit
+  end
+
+  def edit_achievements
+    @achievements = Achievement.all
+  end
+
+  def update_achievements
+    @student.achievements = []
+    params[:achievements].keys.each do |achievement_id|
+      @student.achievements << Achievement.find_by_id(achievement_id)
+    end
+    redirect_to edit_achievements_student_path
   end
 
   def create

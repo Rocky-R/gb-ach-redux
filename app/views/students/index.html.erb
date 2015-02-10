@@ -22,7 +22,7 @@
         <td><%= student.email %></td>
         <td><%= student.teacher.name if student.teacher != nil %></td>
         <td><%= student.parents.first.name if student.parents.any? %></td>
-        <td><%= button_to 'Show', student, :method => "get" %></td>
+        <td><%= button_to 'Edit Achievements', edit_achievements_student_path(student), :method => "get" %></td>
         <td><%= button_to 'Edit', edit_student_path(student), :method => "get" %></td>
         <td><%= button_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }, :method => "get" %></td>
       </tr>

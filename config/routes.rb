@@ -7,8 +7,17 @@ Rails.application.routes.draw do
 
   resources :teachers
   resources :grades
-  resources :students
   resources :parents
+  resources :students do
+    member do
+      get 'edit_achievements'
+      post 'edit_achievements'
+      post 'update_achievements'
+    end
+    collection do
+      get 'dashboard'
+    end
+  end
 
   root 'sessions#log_in'
 
